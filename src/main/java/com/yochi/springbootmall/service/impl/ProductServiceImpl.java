@@ -1,6 +1,7 @@
 package com.yochi.springbootmall.service.impl;
 
 import com.yochi.springbootmall.dao.ProductDao;
+import com.yochi.springbootmall.dto.ProductRequest;
 import com.yochi.springbootmall.model.Product;
 import com.yochi.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Integer productId) {
         return productDao.getProductById(productId);
+    }
+
+    @Override
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
     }
 }
