@@ -1,6 +1,6 @@
 package com.yochi.springbootmall.dao;
 
-import com.yochi.springbootmall.constant.ProductCategory;
+import com.yochi.springbootmall.dto.ProductQueryParams;
 import com.yochi.springbootmall.dto.ProductRequest;
 import com.yochi.springbootmall.model.Product;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductDao {
 
-    List<Product> getProducts(ProductCategory category, String search);
+    List<Product> getProducts(ProductQueryParams productQueryParams);
 
     Product getProductById(Integer productId);
 
