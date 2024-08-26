@@ -3,7 +3,11 @@ package com.yochi.springbootmall.service;
 import com.yochi.springbootmall.dto.ProductRequest;
 import com.yochi.springbootmall.model.Product;
 
+import java.util.List;
+
 public interface ProductService {
+
+    List<Product> getProducts();
 
     Product getProductById(Integer productId);
 
