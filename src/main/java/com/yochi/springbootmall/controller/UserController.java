@@ -1,5 +1,6 @@
 package com.yochi.springbootmall.controller;
 
+import com.yochi.springbootmall.dto.UserLoginRequest;
 import com.yochi.springbootmall.dto.UserRegisterRequest;
 import com.yochi.springbootmall.model.User;
 import com.yochi.springbootmall.service.UserService;
@@ -25,5 +26,12 @@ public class UserController {
         User user = userService.getUserById(userId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
+        User user = userService.login(userLoginRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+
     }
 }
