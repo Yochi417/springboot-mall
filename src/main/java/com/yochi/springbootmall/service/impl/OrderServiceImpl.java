@@ -4,6 +4,7 @@ import com.yochi.springbootmall.dao.OrderDao;
 import com.yochi.springbootmall.dao.ProductDao;
 import com.yochi.springbootmall.dto.BuyItem;
 import com.yochi.springbootmall.dto.CreateOrderRequest;
+import com.yochi.springbootmall.model.Order;
 import com.yochi.springbootmall.model.OrderItem;
 import com.yochi.springbootmall.model.Product;
 import com.yochi.springbootmall.service.OrderService;
@@ -22,6 +23,16 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+        return order;
+    }
 
     @Transactional
     @Override
